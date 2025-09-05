@@ -100,7 +100,6 @@ public class TestStack {
     //     Stack one = new Stack();
     //     one.push(42);
     //     Stack flippedOne = StackClient.flipped(one);
-    //     assertEquals(0, one.size());
     //     assertEquals(1, flippedOne.size());
     //     assertEquals(42, flippedOne.pop());
     // }
