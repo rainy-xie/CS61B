@@ -18,7 +18,7 @@ public class DummyHistoryHandler extends NgordnetQueryHandler {
     public static final int NUM_1000 = 1000;
     public static final int NUM_500 = 500;
     public static final double NUM_100 = 100.0;
-    public static final double NUM_1400 = 1450.0;
+    public static final double NUM_1450 = 1450.0;
 
     @Override
     public String handle(NgordnetQuery q) {
@@ -33,7 +33,7 @@ public class DummyHistoryHandler extends NgordnetQueryHandler {
 
         TimeSeries parabola = new TimeSeries();
         for (int i = YEAR_1400; i < YEAR_1500; i += 1) {
-            parabola.put(i, ((i - NUM_1400) * (i - NUM_1400)) + 3);
+            parabola.put(i, ((i - NUM_1450) * (i - NUM_1450)) + 3);
         }
 
         TimeSeries sinWave = new TimeSeries();
