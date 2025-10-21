@@ -1,8 +1,6 @@
 package main;
 
 import browser.NgordnetServer;
-import demo.DummyHistoryHandler;
-import demo.DummyHistoryTextHandler;
 import org.slf4j.LoggerFactory;
 
 public class Main {
