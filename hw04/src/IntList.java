@@ -7,7 +7,9 @@ public class IntList {
         rest = r;
     }
 
-    /** Return the size of the list using... recursion! */
+    /**
+     * Return the size of the list using... recursion!
+     */
     public int size() {
         if (rest == null) {
             return 1;
@@ -15,7 +17,9 @@ public class IntList {
         return 1 + this.rest.size();
     }
 
-    /** Return the size of the list using no recursion! */
+    /**
+     * Return the size of the list using no recursion!
+     */
     public int iterativeSize() {
         IntList p = this;
         int totalSize = 0;
@@ -26,7 +30,9 @@ public class IntList {
         return totalSize;
     }
 
-    /** Returns the ith item of this IntList. */
+    /**
+     * Returns the ith item of this IntList.
+     */
     public int get(int i) {
         if (i == 0) {
             return first;
@@ -38,12 +44,15 @@ public class IntList {
      * Returns an IntList identical to L, but with
      * each element incremented by x. L is not allowed
      * to change. Must use recursion.
-     *
+     * <p>
      * This method is non-destructive, i.e. it must not modify the original list.
      */
     public static IntList incrRecursiveNondestructive(IntList L, int x) {
         // TODO: Fill in this code
-        return null;
+        if (L == null) {
+            return null;
+        }
+        return new IntList(L.first + x, incrRecursiveNondestructive(L.rest, x));
     }
 
     /**
@@ -53,7 +62,12 @@ public class IntList {
      */
     public static IntList incrRecursiveDestructive(IntList L, int x) {
         // TODO: Fill in this code
-        return null;
+        if (L == null) {
+            return null;
+        }
+        L.first += x;
+        incrRecursiveDestructive(L.rest, x);
+        return L;
     }
 
     /**
@@ -63,7 +77,20 @@ public class IntList {
      */
     public static IntList incrIterativeNondestructive(IntList L, int x) {
         // TODO: Fill in this code
-        return null;
+        if (L == null) {
+            return null;
+        }
+
+        IntList result = new IntList(L.first + x, null);
+        IntList tail = result;
+        IntList p = L.rest;
+
+        while (p != null) {
+            tail.rest = new IntList(p.first + x, null);
+            tail = tail.rest;
+            p = p.rest;
+        }
+        return result;
     }
 
     /**
@@ -74,7 +101,15 @@ public class IntList {
      */
     public static IntList incrIterativeDestructive(IntList L, int x) {
         // TODO: Fill in this code
-        return null;
+        if (L == null) {
+            return null;
+        }
+        IntList p = L;
+        while (p != null) {
+            p.first += x;
+            p = p.rest;
+        }
+        return L;
     }
 
     /**
@@ -83,7 +118,15 @@ public class IntList {
      */
     public static IntList concatenate(IntList L1, IntList L2) {
         // TODO: Fill in this code
-        return null;
+        if (L1 == null) {
+            return L2;
+        }
+        IntList p = L1;
+        while (p.rest != null) {
+            p = p.rest;
+        }
+        p.rest = L2;
+        return L1;
     }
 
     /*
